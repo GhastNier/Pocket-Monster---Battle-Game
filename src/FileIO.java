@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+// Michael Savard Gélinas - 261063031
 public class FileIO {
 
     public static Character readCharacter(String fileName) {

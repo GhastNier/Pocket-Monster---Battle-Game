@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+// Michael Savard Gélinas - 261063031
 public class BattleGame {
 
     private static Random random = new Random();
@@ -62,8 +62,6 @@ public class BattleGame {
                 System.out.println("You've left the dungeon unscathed, but your ego took a hit.");
                 return;
             }
-
         }
-
     }
 }

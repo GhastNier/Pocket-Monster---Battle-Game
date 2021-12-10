@@ -1,5 +1,5 @@
 import java.util.Random;
-
+// Michael Savard Gélinas - 261063031
 public class Spell {
     private final String name;
     private final double minDmg;

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
-
+// Michael Savard Gélinas - 261063031
 public class Character {
     public static String setSpells(ArrayList<Spell> spells) {
         Character.spells = spells;
