@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Character {
-    public static void setSpells(ArrayList<Spell> spells) {
+    public static String setSpells(ArrayList<Spell> spells) {
         Character.spells = spells;
+        return null;
     }
 
     private static ArrayList<Spell> spells;
@@ -23,13 +24,14 @@ public class Character {
 
     }
 
-    public Integer castSpell(String spellName, int dmg){
+    /** public Double castSpell(Spell spellName, int dmg){
+        Double dmgSpl = random.nextDouble(getMinDamage(), (getMaxDamage() + 0.000001));
+    return dmgSpl;
+    } **/
 
-    }
-
-    public static void displaySpells(Spell spell) {
-        System.out.println(spell);
-    }
+    public static void displaySpells(Spell spells) {
+            System.out.println(spells);
+        }
 
     public String getName() {
         return Name;

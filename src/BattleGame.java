@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class BattleGame {
         Scanner playInput = new Scanner(System.in);
         Character player = FileIO.readCharacter(playerFileName);
         Character monster = FileIO.readCharacter(monsterFileName);
-        Character.setSpells(FileIO.readSpells(spellFileName));
+        ArrayList spells = FileIO.readSpells(spellFileName);
         if (player == null || monster == null) {
             System.err.println("It is impossible to play the game at the moment, missing some data.");
             return;
@@ -35,7 +36,6 @@ public class BattleGame {
             String matt = String.format("%1$.2f", MonsterAtt);
             boolean Attack = "Attack".equalsIgnoreCase(playerMove);
             boolean Quit = "Quit".equalsIgnoreCase(playerMove);
-            boolean Spell = "Spell".equalsIgnoreCase(playerMove);
 
             if (Attack) {
                 monster.takeDamage(PlayerAtt);
@@ -54,12 +54,13 @@ public class BattleGame {
                     System.out.println(player.getName() + " has fallen to combat.");
                 }
             }
+            if (!Quit && !Attack) {
+                System.out.print("\nYou open your spell book and remember your incantation. Choose wisely, the arcane are a difficult art to master. \n \n");
+                spells.forEach(System.out::print);
+            }
             if (Quit) {
                 System.out.println("You've left the dungeon unscathed, but your ego took a hit.");
                 return;
-            }
-            if (!Quit && !Attack && !Spell) {
-                System.out.println("Please enter a valid command, which can be Attack, Spell or Quit.");
             }
 
         }

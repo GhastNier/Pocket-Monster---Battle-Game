@@ -45,7 +45,6 @@ public class Spell {
 
     @Override
     public String toString() {
-        return "Spell name:" + getName() + " Minimum Damage: " + getMinDmg() +
-                " Maximum Damage: " + getMaxDmg() + " Spell Chance of Success: " + getSplLuck();
+        return "Spell Name: " + getName() + "\n\tDamage: " + getMinDmg() + " to " + getMaxDmg() + "\n\tSpell Chance of Success: " + getSplLuck()*100 +"% \n";
     }
 }
