@@ -24,10 +24,22 @@ public class Character {
 
     }
 
-    /** public Double castSpell(Spell spellName, int dmg){
-        Double dmgSpl = random.nextDouble(getMinDamage(), (getMaxDamage() + 0.000001));
-    return dmgSpl;
-    } **/
+    public double castSpell(String splName, int seed) {
+        double dmgDealth = 0.0;
+        Random rand = new Random(seed);
+        double ranSpellDmg = 0;
+
+        for (int i = 0; i < Character.spells.size(); i++) {
+            if (Character.spells.get(i).getName().equalsIgnoreCase(splName)) {
+                ranSpellDmg = (Character.spells.get(i).getMaxDmg() - Character.spells.get(i).getMinDmg()) + Character.spells.get(i).getMinDmg() * rand.nextDouble();
+                dmgDealth = ranSpellDmg;
+                break;
+            } else {
+                dmgDealth = -1;
+            }
+        }
+        return dmgDealth;
+    }
 
     public static void displaySpells(Spell spells) {
             System.out.println(spells);

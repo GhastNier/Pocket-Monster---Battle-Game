@@ -56,8 +56,9 @@ public class BattleGame {
             }
             if (!Quit && !Attack) {
                 System.out.print("\nYou open your spell book and remember your incantation. Choose wisely, the arcane are a difficult art to master. \n \n");
-                spells.forEach(System.out::print);
+
             }
+
             if (Quit) {
                 System.out.println("You've left the dungeon unscathed, but your ego took a hit.");
                 return;
