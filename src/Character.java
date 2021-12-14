@@ -2,17 +2,19 @@ import java.util.ArrayList;
 import java.util.Random;
 // Michael Savard Gélinas - 261063031
 public class Character {
-    public static String setSpells(ArrayList<Spell> spells) {
-        Character.spells = spells;
-        return null;
-    }
 
     private static ArrayList<Spell> spells;
+
+    public static void setSpells(ArrayList<Spell> spells) {
+        Character.spells = spells;
+    }
+
     private final String Name;
     private final double AttackValue;
     private final double MaxHealth;
     private double CurrHealth;
     private int NumWins;
+
 
 
     public Character(String Name, double AttackValue, double MaxHealth, int NumWins) {
@@ -25,14 +27,14 @@ public class Character {
     }
 
     public double castSpell(String splName, int seed) {
-        double dmgDealth = 0.0;
+        double dmgDealth = 0;
         Random rand = new Random(seed);
-        double ranSpellDmg = 0;
+        double ranSpellDmg;
 
-        for (int i = 0; i < Character.spells.size(); i++) {
-            if (Character.spells.get(i).getName().equalsIgnoreCase(splName)) {
-                ranSpellDmg = (Character.spells.get(i).getMaxDmg() - Character.spells.get(i).getMinDmg()) + Character.spells.get(i).getMinDmg() * rand.nextDouble();
-                dmgDealth = ranSpellDmg;
+        for (Spell spell : Character.spells) {
+            if (spell.getName().equalsIgnoreCase(splName)) {
+                ranSpellDmg =  new Random(seed).doubles(spell.getMinDmg(), spell.getMaxDmg()).findFirst().getAsDouble();
+                dmgDealth = ranSpellDmg * rand.nextDouble() + 0.00001;
                 break;
             } else {
                 dmgDealth = -1;
@@ -41,9 +43,11 @@ public class Character {
         return dmgDealth;
     }
 
-    public static void displaySpells(Spell spells) {
-            System.out.println(spells);
+    public static void displaySpells(ArrayList<Spell> spellsList){
+        for (Object splLine : spellsList) {
+            System.out.println(splLine);
         }
+    }
 
     public String getName() {
         return Name;
@@ -67,7 +71,7 @@ public class Character {
 
     @Override
     public String toString() {
-        return Name + "\n" + "His current Health is of " + String.format("%1$.2f", getMaxHealth()) + " HP.";
+        return Name + "\n" + "His current Health is of " + String.format("%1$.2f", getCurrHealth()) + " HP.";
     }
 
     public double getAttackDamage(int seed) {
