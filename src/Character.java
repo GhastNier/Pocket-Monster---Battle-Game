@@ -33,7 +33,7 @@ public class Character {
 
         for (Spell spell : Character.spells) {
             if (spell.getName().equalsIgnoreCase(splName)) {
-                ranSpellDmg = spell.getMagicDamage(seed);
+                ranSpellDmg =  new Random(seed).doubles(spell.getMinDmg(), spell.getMaxDmg()).findFirst().getAsDouble();
                 dmgDealth = ranSpellDmg * rand.nextDouble() + 0.00001;
                 break;
             } else {

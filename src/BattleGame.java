@@ -79,7 +79,7 @@ public class BattleGame {
                 if (Fire || Ice || Meteor || Surge) {
                     String castStr = String.format("%1$.2f", player.castSpell(spellMove, attVar));
                     Double splDmg = player.castSpell(spellMove, attVar);
-                    if (splDmg <= 0 ) {
+                    if (splDmg <= 0) {
                         System.out.println("Klaatu Verata N... Necktie! Nectar! Nickel! Noodle! Oh noes \n" + player.getName() + " used the wrong incantation the spell missed.");
                     } else {
                         System.out.println(player.getName() + " casted " + spellMove + " and they did a total of " + castStr + " points of damages to " + monster.getName());
